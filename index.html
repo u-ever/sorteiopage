@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorteio</title>
+
+    <style>
+        /*.pallete {
+            #cb997e
+            #ddbea9
+            #ffe8d6
+            #b7b7a4
+            #a5a58d
+            #6b705c
+        }*/
+
+        body {
+            background-color: #6b705c;
+            text-align: center;
+            padding: 5vw;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        .description {
+            color: #ffe8d6;
+            font-size: 150%;
+            font-weight: 600;
+        }
+
+        #div_sorteio {
+            color: #ffe8d6;
+            font-size: 300%;
+            font-weight: 600;
+        }
+
+        .container {
+            background-color: #cb997e;
+            padding: 4%;
+            margin: auto;
+            text-align: center;
+            width: 30vw;
+            height: 30vh;
+            border-radius: 10px;
+            box-shadow: 3px 3px 10px 2px rgba(15, 13, 13, 0.596);
+        }
+
+        #btn-sorteio,
+        #btn-clear {
+            font-family: 'Courier New', Courier, monospace;
+            border: none;
+            width: 40%;
+            height: 20%;
+            background-color: #a5a58d;
+            box-shadow: 3px 3px 10px 2px rgba(15, 13, 13, 0.596);
+            color: #ffe8d6;
+            font-size: 2vw;
+            font-weight: 600;
+            border-radius: 5px;
+        }
+
+        #btn-sorteio:hover,
+        #btn-clear:hover {
+            background-color: #ffe8d6;
+            color: #a5a58d;
+            box-shadow: 3px 3px 10px 2px rgba(46, 44, 44, 0.596);
+        }
+
+        #btn-sorteio:active,
+        #btn-clear:active {
+            background-color: #ddbea9;
+            color: #6b705c;
+            box-shadow: 3px 3px 10px 2px rgba(46, 44, 44, 0.596);
+        }
+
+        .saves {
+            inline-size: 0px;
+            background-color: #ffe8d6;
+            width: 50%;
+            margin-right: auto;
+            margin-left: auto;
+            font-size: 2vw;
+            font-weight: 600;
+            margin-block-end: 15px;
+            border-radius: 10px;
+        }
+
+        #p-saves {
+            margin-block-start: 5px;
+            margin-block-end: 5px;
+        }
+
+    </style>
+
+    <script>
+
+
+
+        function sortear() {
+            let num = Math.round(Math.random() * (100 - 1) + 1);
+            let divSorteio = document.querySelector("#div_sorteio")
+            let saves = document.querySelector(".saves")
+
+            divSorteio.innerHTML = `<h1>${num}</h1>`
+            saves.innerHTML += `<p id="p-saves">${num}</p>`          
+        }
+
+        function apagar() {
+            let saves = document.querySelector("#p-saves").remove()
+        }
+
+    </script>
+
+</head>
+
+<body>
+    <div class="description">
+        <h1>Sorteio!</h1>
+        <h3>Sorteie um número de 1 a 100</h3>
+    </div>
+    <div class="container">
+        <div id="div_sorteio">
+            <h1>##</h1>
+        </div>
+        <input id="btn-sorteio" type="button" value="sortear" onclick="sortear()">
+    </div>
+
+    <section>
+        <div class="saves">
+            <p></p>
+        </div>
+        <input id="btn-clear" type="button" value="Apagar" onclick="apagar()">
+    </section>
+
+</body>
+
+</html>
